@@ -37,7 +37,7 @@ const Header = () => {
             
 
        
-       <div onClick={()=> setopen(!open)} className='h-6 w-8 md:hidden'>
+       <div onClick={()=> setopen(!open)} className='h-6 text-white w-8 md:hidden'>
            {open? <FontAwesomeIcon icon={faXmark} />: <FontAwesomeIcon icon={faBars} />}
            </div>
 
@@ -50,7 +50,7 @@ const Header = () => {
 
            <div className='md:flex justify-evenly text-poppins  items-center text-white lg:w-6/12 lg:ml-14'>
             <li><CustomLink className=' mr-3 pl-2' to="/">Home</CustomLink></li>
-            <li><CustomLink className=' mr-3 pl-2' to="/course">Course</CustomLink></li>
+            <li><CustomLink className=' mr-3 pl-2' to="/blogs">Blogs</CustomLink></li>
             <li><CustomLink className=' mr-3 pl-2' to="/checkout">Check out</CustomLink></li>
             <li><CustomLink className=' mr-3 pl-2' to="/contact">Contact us</CustomLink></li>
             <li><CustomLink className=' mr-3 pl-2' to="/about">About</CustomLink></li>

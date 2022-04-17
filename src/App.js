@@ -14,6 +14,9 @@ import CourseDetails from './Components/course/CourseDetails';
 import React, { createContext } from 'react';
 import useCourse from './hooks/useCourse';
 import Checkout from './Components/Checkout/Checkout';
+import Footer from './Components/sharedfile/Footer';
+import Blogs from './Components/Blogs/Blogs';
+import Details from './Components/Blogs/Details';
 
 
 function App() {
@@ -27,10 +30,10 @@ function App() {
       <Route path='/login' element={<Login></Login>}/>
       <Route path='/register' element={<Register/>}/>
       
-      <Route path='/course' element={<Coursepage/>}/>
+      <Route path='/blogs' element={<Blogs></Blogs>}/>
      
       
-      <Route path='/course/:id' element={  <CourseDetails></CourseDetails>}/>
+      <Route path='/blogs/:id' element={ <Details></Details>}/>
         
       <Route path='/checkout' element={
         <RequireAuth>
@@ -40,6 +43,7 @@ function App() {
       <Route path='*' element={<NotFound/>}/>
       
     </Routes>
+    <Footer></Footer>
     </div>
   );
 }
