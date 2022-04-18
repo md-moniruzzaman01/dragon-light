@@ -57,11 +57,11 @@ const Register = () => {
                     </div>
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300 ">Your email</label>
-                        <input ref={emailRef} type="email" name="email" id="email" className="bg-gray-600 border border-gray-500 placeholder-gray-400 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@company.com" required="" />
+                        <input ref={emailRef} type="email" name="email" id="email" className="bg-gray-600 border border-gray-500 placeholder-gray-400 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@company.com" required />
                     </div>
                     <div>
                         <label htmlFor="password" className="block mb-2 text-sm font-medium  text-gray-300">Your password</label>
-                        <input ref={passwordRef} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-600 border border-gray-500 placeholder-gray-400 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" />
+                        <input ref={passwordRef} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-600 border border-gray-500 placeholder-gray-400 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                 
                    <div>{errorhandle}</div>

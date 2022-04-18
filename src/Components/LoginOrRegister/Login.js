@@ -91,11 +91,11 @@ const Login = () => {
                     <h5 className="text-2xl font-medium text-white text-center ">Sign in</h5>
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300 ">Your email</label>
-                        <input ref={emailRef} type="email" name="email" id="email" className="bg-gray-600 text-white border  border-gray-500  placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@company.com" required="" />
+                        <input ref={emailRef} type="email" name="email" id="email" className="bg-gray-600 text-white border  border-gray-500  placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@company.com" required />
                     </div>
                     <div>
                         <label htmlFor="password" className="block mb-2 text-sm font-medium  text-gray-300">Your password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-600 border border-gray-600 ring-offset-gray-800 text-white placeholder-gray-400   text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" />
+                        <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-600 border border-gray-600 ring-offset-gray-800 text-white placeholder-gray-400   text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                     <div className="flex items-start">
                         <div className="flex items-start">
