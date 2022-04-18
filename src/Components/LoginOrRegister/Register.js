@@ -2,7 +2,7 @@ import { getAuth } from 'firebase/auth';
 import React, { useRef } from 'react';
 
 
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import app from '../../firebase.init';
 import GoogleSignin from './GoogleSignin';
@@ -14,23 +14,30 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+      const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
+      let errorhandle;
+        
+      if(error){
+          errorhandle = <p className='text-red-500 text-center'>{error?.message}</p>
+      }
 
         const emailRef = useRef()
         const passwordRef = useRef()
 
       if(user){
+         
          navigte('/')
       }
 
 
-      const createAccountHandle=(e)=>{
+      const createAccountHandle= async(e)=>{
             e.preventDefault()
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
           
          console.log(email,password);
-         createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
       }
 
 
@@ -54,7 +61,7 @@ const Register = () => {
                         <input ref={passwordRef} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-600 border border-gray-500 placeholder-gray-400 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" />
                     </div>
                 
-                    
+                    <div>{errorhandle}</div>
                     <input className="w-full text-white bg-sky-600 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="submit" value="Login to your account" />
                     <div className="text-sm font-medium text-gray-300">
                     Already have an account? <button className="text-blue-700 hover:underline "  >Login</button> 

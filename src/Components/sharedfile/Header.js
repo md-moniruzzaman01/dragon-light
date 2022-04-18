@@ -13,7 +13,7 @@ const Header = () => {
     const auth = getAuth(app);
     const [user, loading, error] = useAuthState(auth);
     const prifileIcon = user?.email[0].toLocaleUpperCase()
-
+   
    const logOutHandle=()=>{
         signOut(auth);
    }
