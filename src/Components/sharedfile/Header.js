@@ -30,8 +30,8 @@ const Header = () => {
         <div className='bg-zinc-900'>
         <div className='flex justify-between px-2 h-16 items-center  container mx-auto  '>
             <div>
-                <h2 className='text-3xl text-headerColor font-lavishly font-semibold'>
-                Edu<span className='text-sky-600'>skull</span>
+                <h2 className='text-3xl text-sky-600  font-lavishly font-semibold'>
+                DragonLight
                 </h2>
             </div>
             
@@ -56,11 +56,11 @@ const Header = () => {
             <li><CustomLink className=' mr-3 pl-2' to="/about">About</CustomLink></li>
             </div>
             {
-                user? <div  ><button onClick={logOutHandle} className='bg-gray-400  px-6 border-2  py-2  font-medium text-white rounded-3xl '>log out</button></div> : 
+                user? <div  ><button onClick={logOutHandle} className='bg-sky-600 text-gray-300  px-6 border-2  py-2  font-medium  rounded-3xl '>log out</button></div> : 
                 <div className='flex items-center '>
 
-                <li> <Link to="/login" className='mr-4 pl-2  text-white text-md text-medium border-r-2  border-gray-500 pr-3'>login</Link> </li>
-                <li><Link  className='bg-headerColor  px-6 border-2  py-2 text-md font-medium text-white rounded-3xl ' to='/register'>Register</Link>  </li>
+                <li> <Link to="/login" className='mr-4 pl-2  text-white hover:text-sky-600 text-md text-medium border-r-2  border-gray-500 pr-3'>login</Link> </li>
+                <li><Link  className='bg-gray-400 hover:bg-sky-600 px-6 py-2 text-md font-medium text-white rounded-3xl ' to='/register'>Register</Link>  </li>
             </div>
             }
 

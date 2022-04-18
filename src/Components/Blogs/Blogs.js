@@ -24,7 +24,7 @@ const Detailsbtn =(id)=>{
 
     return (
       <div className='bg-zinc-900'>
-            <div className='blog-section container mx-auto  px-2 font-poppins'>
+            <div className='blog-section container mx-auto   font-poppins'>
          <div>
          {
              blogs.map(blg=> <Blog Detailsbtn={Detailsbtn} key={blg.id} blg={blg}></Blog>)
@@ -32,7 +32,7 @@ const Detailsbtn =(id)=>{
          </div>
         
        <div className=''>
-       <div className='category w-10/12 bg-zinc-800 min-h-[90vh] px-2 text-gray-300 mx-auto rounded   '>
+       <div className='category w-full  md:w-10/12  bg-zinc-800 min-h-[90vh]  text-gray-300 mx-auto rounded   '>
             <h1 className='text-white text-2xl border-b-2 border-gray-400'>Category</h1>
             <p onClick={()=> navigate('/blogs/1')}  className='mt-5 border-b-small py-2'>authorization and authentication?</p>
             <p onClick={()=> navigate('/blogs/2')} className='border-b-small py-2'>firebaseand other  authentication</p>
