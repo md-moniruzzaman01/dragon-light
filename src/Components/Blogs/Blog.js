@@ -12,8 +12,8 @@ const Blog = ({blg,Detailsbtn}) => {
             <p className='px-5 rounded-md text-lg text-white   py-5 left-4 absolute bottom-[-20px] bg-red-600'>jan 15</p>
         </div>
         <div className='relative'>
-            <h1 className='text-white mt-7 text-3xl'>{name}</h1>
-            <p className='text-gray-300 mt-5 pb-16'>{body}</p>
+            <h1 className='text-white mt-7 text-2xl'>{name}</h1>
+            <p className='text-gray-300 mt-5 pb-16'>{body.slice(0,100)}... <span className='text-sky-700 underline'>read more</span></p>
             <div className='flex text-gray-400 absolute bottom-1'>
             <p className=' border-r-2 border-gray-400'> <FontAwesomeIcon icon={faUser}/> <span className='px-2'>{tags}</span></p>
             <p className='ml-2'><FontAwesomeIcon icon={faComment}/> <span className='ml-2'>{comments} Comments</span></p>
