@@ -10,7 +10,7 @@ const AboutDeveloper = () => {
             <div className='flex justify-center mt-20'>
                 <img className='w-auto rounded-full h-3/6' src={developerImg} alt="" />
             </div>
-            <div className='flex justify-center text-gray-300 mt-20 mx-5'>
+            <div className='flex justify-center text-gray-300 mt-24 mx-5'>
               <div>
               <h1 className=' text-2xl text-gray-300 '> Hi there! I’m a Md moniruzzaman.</h1>
                 <article>
