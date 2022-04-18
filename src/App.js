@@ -17,6 +17,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Footer from './Components/sharedfile/Footer';
 import Blogs from './Components/Blogs/Blogs';
 import Details from './Components/Blogs/Details';
+import AboutDeveloper from './Components/AboutPage/AboutDeveloper';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Checkout></Checkout>
         </RequireAuth>
       }/>
+      <Route path='/about' element={<AboutDeveloper></AboutDeveloper>}/>
       <Route path='*' element={<NotFound/>}/>
       
     </Routes>

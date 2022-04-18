@@ -4,7 +4,7 @@ import React from 'react';
 const CatagoryItem = ({service,checkoutbtn}) => {
     const{id,Image,about,servieName,price}=service;
     return (
-        <div className="rounded overflow-hidden text-white shadow-lg shadow-zinc-700 relative min-h-[510px] ">
+        <div className="rounded overflow-hidden text-white shadow-lg shadow-zinc-800 relative min-h-[510px] ">
         <img className="w-full h-48" src={Image} alt="servies"/>
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{servieName}</div>

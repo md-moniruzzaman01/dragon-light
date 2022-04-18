@@ -28,7 +28,7 @@ const navigate = useNavigate()
    }
    
     return (
-        <div className='bg-zinc-800'>
+        <div className='bg-zinc-900'>
         <div className='min-h-screen pt-24 container mx-auto font-poppins text-center  max-w-7xl'>
             <h2 className='text-4xl text-white font-poppins font-medium mb-3'>What <span className='text-red-600 '>We</span> Offer</h2>
             <p className='text-gray-300'>She'd earth that midst void creeping him above seas.</p>
