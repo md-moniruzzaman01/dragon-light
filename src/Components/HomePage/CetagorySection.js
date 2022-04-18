@@ -14,9 +14,9 @@ const CetagorySection = () => {
   
 const navigate = useNavigate()
     const servies = [{id:"1",price:'49', servieName: "Nature Photography",Image:`${nuture}`, about:"You're which creepeth were yielding kind, divide sixten po gatherin all first fill Seed wherein life. Years one fifth"},
-                         {id:"2",price:'89', servieName: "Property Tours",Image:`${proparty}`, about:"You're which creepeth were yielding kind, divide sixten po gatherin all first fill Seed wherein life. Years one fifth"}, 
-                         {id:"3",price:'79', servieName: "Eventy Coverage",Image:`${eventphoto}`, about:"You're which creepeth were yielding kind, divide sixten po gatherin all first fill Seed wherein life. Years one fifth"}, 
-                         {id:"4", price:'99',servieName: "Weeding Photography",Image:`${wadding}`, about:"You're which creepeth were yielding kind, divide sixten po gatherin all first fill Seed wherein life. Years one fifth"}, 
+                         {id:"2",price:'89', servieName: "Property Tours",Image:`${proparty}`, about:"360 Home Photography  professional specializes in home, apartment, office buildings and retail spaces of photo and video productions."}, 
+                         {id:"3",price:'79', servieName: "Eventy Coverage",Image:`${eventphoto}`, about:"family portraiture, corporate headshots, walkabouts, engagement, bachelorette parties and weddings. "}, 
+                         {id:"4", price:'99',servieName: "Weeding Photography",Image:`${wadding}`, about:" Capable of handling any media events like Photography, Cinematography, Music video, etc. Cover your wedding / Event with a photographer on a limited budget"}, 
 
                     ]
         

@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getAuth } from 'firebase/auth';
-import React from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React, { useRef } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import app from '../../firebase.init';
 import GoogleSignin from './GoogleSignin';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import LoadingSpener from '../sharedfile/LoadingSpener';
 const Login = () => {
     const auth = getAuth(app);
     const navigte = useNavigate()
@@ -15,8 +16,16 @@ const Login = () => {
         signInWithEmailAndPassword,
         user,
         loading,
-        error,
+        error1,
       ] = useSignInWithEmailAndPassword(auth);
+      const [sendPasswordResetEmail, sending, Error2] = useSendPasswordResetEmail(
+        auth
+      );
+
+
+
+
+
       let location = useLocation();
       let from = location.state?.from?.pathname || "/";
 
@@ -24,23 +33,14 @@ const Login = () => {
         navigte(from, { replace: true })
      }
      let errorhandle;
-     const wrongpassword = error?.message.includes('auth/wrong-password') 
-     const usernotFound = error?.message.includes('auth/user-not-found') 
-     const internalError = error?.message.includes('auth/internal-error') 
+     const wrongpassword = error1?.message.includes('auth/wrong-password') 
+     const usernotFound = error1?.message.includes('auth/user-not-found') 
+     const internalError = error1?.message.includes('auth/internal-error') 
  
-     if(error){
-        if (wrongpassword) {
-            toast("Worng password")
-        }else if(usernotFound){
-           toast("Wrong user email")
-        
-        }else if(internalError){
-           toast("user or password not match")
-        }
-         else {
-            toast('something is worng')
-        }
-    }
+
+
+
+   
         
       const signInHandle=(e)=>{
           e.preventDefault();
@@ -49,6 +49,36 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
    
 
+        if(error1){
+            if (wrongpassword) {
+                toast("Worng password")
+            }else if(usernotFound){
+               toast("Wrong user email")
+            
+            }else if(internalError){
+               toast("user or password not match")
+            }
+             else {
+                toast('something is worng')
+            }
+        }
+
+      }
+      const emailRef = useRef()
+      const resetPasswordHandle= async(e)=>{
+        e.preventDefault();
+           const email= emailRef.current.value;
+           if(email){
+            await sendPasswordResetEmail()
+            toast('mail send')
+           }
+          if(loading){
+              <LoadingSpener></LoadingSpener>
+          }
+          if(Error2){
+              toast(Error2.message)
+          }
+           
       }
 
     return (
@@ -61,7 +91,7 @@ const Login = () => {
                     <h5 className="text-2xl font-medium text-white text-center ">Sign in</h5>
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300 ">Your email</label>
-                        <input type="email" name="email" id="email" className="bg-gray-600 text-white border  border-gray-500  placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@company.com" required="" />
+                        <input ref={emailRef} type="email" name="email" id="email" className="bg-gray-600 text-white border  border-gray-500  placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@company.com" required="" />
                     </div>
                     <div>
                         <label htmlFor="password" className="block mb-2 text-sm font-medium  text-gray-300">Your password</label>
@@ -77,7 +107,7 @@ const Login = () => {
                             </div>
                         </div>
                         
-                        <button className="ml-auto text-sm text-blue-700 hover:underline ">
+                        <button onClick={resetPasswordHandle} className="ml-auto text-sm text-blue-700 hover:underline ">
                             Forget Password?</button>
                     </div>
                    
