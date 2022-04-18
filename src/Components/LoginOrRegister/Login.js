@@ -6,7 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import app from '../../firebase.init';
 import GoogleSignin from './GoogleSignin';
 
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
     const auth = getAuth(app);
     const navigte = useNavigate()
@@ -22,13 +23,32 @@ const Login = () => {
       if(user){
         navigte(from, { replace: true })
      }
-
-
+     let errorhandle;
+     const wrongpassword = error?.message.includes('auth/wrong-password') 
+     const usernotFound = error?.message.includes('auth/user-not-found') 
+     const internalError = error?.message.includes('auth/internal-error') 
+ 
+     if(error){
+        if (wrongpassword) {
+            toast("Worng password")
+        }else if(usernotFound){
+           toast("Wrong user email")
+        
+        }else if(internalError){
+           toast("user or password not match")
+        }
+         else {
+            toast('something is worng')
+        }
+    }
+        
       const signInHandle=(e)=>{
           e.preventDefault();
           const email = e.target.email.value;
           const password = e.target.password.value;
         signInWithEmailAndPassword(email, password)
+   
+
       }
 
     return (
@@ -60,12 +80,14 @@ const Login = () => {
                         <button className="ml-auto text-sm text-blue-700 hover:underline ">
                             Forget Password?</button>
                     </div>
+                   
                     <input className="w-full text-white bg-sky-600 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="submit" value="Login to your account" />
                     <div className="text-sm font-medium text-gray-300">
-                        Not registered? <button className="text-blue-700 hover:underline " >Register</button> 
+                        Not registered? <button onClick={()=>navigte('/register')} className="text-blue-700 hover:underline " >Register</button> 
                     </div>
                 </form>
                 <GoogleSignin></GoogleSignin>
+                <ToastContainer></ToastContainer>
             </div>
 
 
