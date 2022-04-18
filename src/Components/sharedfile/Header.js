@@ -45,7 +45,7 @@ const Header = () => {
         
          <ul className={` sm:static z-10   sm:py-8 md:py-0 items-center bg-zinc-900 py-4 justify-end md:w-11/12 w-full duration-500 ease-in-out md:flex  lg:bg-none  absolute ${ open ? 'top-11 left-0 ' : 'top-[-1200px]'} `}>
         
-           <div className='md:flex justify-between w-10/12 '>
+           <div className='md:flex justify-between  md:w-11/12 lg:w-9/12'>
 
 
            <div className='md:flex justify-evenly text-poppins  items-center text-white lg:w-6/12 lg:ml-14'>
